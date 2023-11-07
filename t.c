@@ -42,7 +42,7 @@ int main()
                 if(strcmp(buffer,"annauniv")==0){
 
 
-                int socfd1;
+                int sockfd1;
                 struct sockaddr_in server_addr1;
                 socklen_t addr_len1 = sizeof(server_addr1);
 
@@ -62,8 +62,8 @@ int main()
                 int len=sizeof(server_addr);
                 char ans[100];
                 recvfrom(sockfd1,ans,sizeof(ans),0,(struct sockaddr *)&server_addr1,&addr_len);
-                pritnf("port num from ADNS:%s\n:",ans);
-                sendto(sockfd,ans,sizeof(ans),0,(struct sockaddr *)&client_addr,&addr_len);
+                printf("port num from ADNS:%s\n:",ans);
+                sendto(sockfd1,ans,sizeof(ans),0,(struct sockaddr *)&client_addr,&addr_len);
 
                 close(sockfd1);
                 }
